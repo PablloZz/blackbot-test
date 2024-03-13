@@ -2,21 +2,21 @@ import './App.css';
 
 function App() {
   return (
-    <form>
-      <label>
-        <span>ETH amount:</span>
-        <input type='number' />
+    <form className='form'>
+      <label className='label'>
+        <span className='label-text'>ETH amount:</span>
+        <input type='number' className='amount-input'/>
       </label>
-      <label>
-        <span>Action:</span>
-        <div>
-          <input type='checkbox' />
-          <span aria-live='assertive'>Sell</span>
+      <label className='label'>
+        <span className='label-text'>Action:</span>
+        <div className='checkbox-wrapper'>
+          <input type='checkbox' className='checkbox' />
+          <span aria-live='assertive' className='label-text'>Sell</span>
         </div>
       </label>
-      <label>
-        <span>You will receive:</span>
-        <input type='text' disabled />
+      <label className='label'>
+        <span className='label-text'>You will receive:</span>
+        <input type='number' className='receive-input'/>
       </label>
     </form>
   );
