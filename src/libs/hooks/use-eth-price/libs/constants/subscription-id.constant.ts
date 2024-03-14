@@ -1,0 +1,3 @@
+const SUBSCRIPTION_ID = 1;
+
+export { SUBSCRIPTION_ID };
