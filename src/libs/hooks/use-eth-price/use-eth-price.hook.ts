@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Endpoint } from "../../enums/enums.ts";
 import { SubscriptionMethod } from "./libs/enums/enums.ts";
 import {
+  INITIAL_ETH_PRICE,
   SUBSCRIPTION_ID,
   SUBSCRIPTION_PARAMETERS,
 } from "./libs/constants/constants.ts";
@@ -9,7 +10,7 @@ import {
 function useEthPrice() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
-  const [ethPrice, setEthPrice] = useState<number | null>(null);
+  const [ethPrice, setEthPrice] = useState<number>(INITIAL_ETH_PRICE);
   const socket = new WebSocket(Endpoint.WEBSOCKET_MARKET_STREAM);
 
   function handleSubscribe() {
@@ -46,7 +47,10 @@ function useEthPrice() {
     socket.send(unsubscribeData);
   }
 
-  const handleError = () => setError(true);
+  function handleError() {
+    setError(true);
+    setLoading(false);
+  }
 
   useEffect(() => {
     socket.addEventListener("close", handleUnsubscribe);
