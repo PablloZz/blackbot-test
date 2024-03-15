@@ -9,7 +9,7 @@ import {
 function useEthPrice() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
-  const [ethPrice, setEthPrice] = useState<number | null>(null);
+  const [ethPrice, setEthPrice] = useState<number>(0);
   const socket = new WebSocket(Endpoint.WEBSOCKET_MARKET_STREAM);
 
   function handleSubscribe() {
@@ -46,7 +46,10 @@ function useEthPrice() {
     socket.send(unsubscribeData);
   }
 
-  const handleError = () => setError(true);
+  function handleError() {
+    setError(true);
+    setLoading(false);
+  }
 
   useEffect(() => {
     socket.addEventListener("close", handleUnsubscribe);
