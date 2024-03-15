@@ -1,0 +1,3 @@
+const INITIAL_ETH_PRICE = 0;
+
+export { INITIAL_ETH_PRICE };
