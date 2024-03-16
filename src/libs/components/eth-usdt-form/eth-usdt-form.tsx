@@ -4,10 +4,11 @@ import { Error, Loader } from "~/libs/components/components.ts";
 import { useEthPrice } from "./libs/hooks/hooks.ts";
 import { type FormData } from "./libs/types/types.ts";
 import { FormValidationMessage } from "./libs/enums/enums.ts";
+import { INITIAL_FORM_VALUES } from "./libs/constants/constants.ts";
 import {
-  INITIAL_FORM_VALUES,
-  OUT_OF_MIN_RANGE_PRICE,
-} from "./libs/constants/constants.ts";
+  isPositiveAmount,
+  shouldRemoveMinRangeError,
+} from "./libs/helpers/helpers.ts";
 
 function EthUsdtForm() {
   const { ethPrice, loading, error } = useEthPrice();
@@ -26,10 +27,7 @@ function EthUsdtForm() {
       receive: String(receive),
     }));
 
-    if (
-      validationMessage !== FormValidationMessage.NO_ERROR &&
-      amount > OUT_OF_MIN_RANGE_PRICE
-    ) {
+    if (shouldRemoveMinRangeError(validationMessage, amount)) {
       setValidationMessage(FormValidationMessage.NO_ERROR);
     }
   }
@@ -44,10 +42,7 @@ function EthUsdtForm() {
       receive: String(receive),
     }));
 
-    if (
-      validationMessage !== FormValidationMessage.NO_ERROR &&
-      amount > OUT_OF_MIN_RANGE_PRICE
-    ) {
+    if (shouldRemoveMinRangeError(validationMessage, amount)) {
       setValidationMessage(FormValidationMessage.NO_ERROR);
     }
   }
@@ -60,7 +55,7 @@ function EthUsdtForm() {
   }
 
   function handleValidateForm() {
-    if (Number(formData.amount) <= OUT_OF_MIN_RANGE_PRICE) {
+    if (!isPositiveAmount(formData.amount)) {
       return setValidationMessage(FormValidationMessage.MIN_AMOUNT_ERROR);
     }
   }
