@@ -1,0 +1,3 @@
+const OUT_OF_MIN_RANGE_PRICE = 0;
+
+export { OUT_OF_MIN_RANGE_PRICE };
