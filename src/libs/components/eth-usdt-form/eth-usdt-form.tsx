@@ -101,7 +101,9 @@ function EthUsdtForm() {
         </div>
       </label>
       <label className={styles.label}>
-        <span className={styles["label-text"]}>You will receive:</span>
+        <span className={styles["label-text"]}>
+          You will {`${formData.isSell ? "receive" : "spend"}`}:
+        </span>
         <input
           type="number"
           placeholder="0"
