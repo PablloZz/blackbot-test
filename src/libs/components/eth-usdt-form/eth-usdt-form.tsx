@@ -3,14 +3,11 @@ import { type ChangeEvent, useState } from "react";
 import { Error, Loader } from "~/libs/components/components.ts";
 import { useEthPrice } from "./libs/hooks/hooks.ts";
 import { type FormData } from "./libs/types/types.ts";
+import { INITIAL_FORM_VALUES } from "./libs/constants/initial-form-values.constant.ts";
 
 function EthUsdtForm() {
   const { ethPrice, loading, error } = useEthPrice();
-  const [formData, setFormData] = useState<FormData>({
-    amount: "",
-    isSell: false,
-    receive: "",
-  });
+  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_VALUES);
 
   function handleChangeAmount(event: ChangeEvent) {
     const { value } = event.target as HTMLInputElement;
