@@ -9,4 +9,5 @@
   padding: 20px;
   border-left: 1px solid hsl(0 4% 76%);
   border-right: 1px solid hsl(0 4% 76%);
+  box-shadow: 0px 0px 4px 0px hsl(0 0% 0% / 0.5);
 }

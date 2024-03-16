@@ -2,4 +2,11 @@
   color: hsl(0 100% 50%);
   font-size: 30px;
   font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 300px) {
+  .error {
+    font-size: 20px;
+  }
 }
