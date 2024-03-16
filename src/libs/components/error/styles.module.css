@@ -1,0 +1,5 @@
+.error {
+  color: hsl(0 100% 50%);
+  font-size: 30px;
+  font-weight: bold;
+}

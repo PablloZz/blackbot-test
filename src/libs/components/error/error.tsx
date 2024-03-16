@@ -1,7 +1,7 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 
 function Error() {
-  return <div className="error">Something Went Wrong...</div>;
+  return <div className={styles.error}>Something Went Wrong...</div>;
 }
 
 export { Error };
