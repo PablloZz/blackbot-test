@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Endpoint } from "../../enums/enums.ts";
+import { Endpoint } from "~/libs/enums/enums.ts";
 import { SubscriptionMethod } from "./libs/enums/enums.ts";
 import {
   INITIAL_ETH_PRICE,

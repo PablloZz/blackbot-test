@@ -1,0 +1,12 @@
+.main {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 800px;
+  max-width: 100%;
+  padding: 20px;
+  border-left: 1px solid hsl(0 4% 76%);
+  border-right: 1px solid hsl(0 4% 76%);
+}
